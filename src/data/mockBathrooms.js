@@ -1,8 +1,6 @@
-const base = import.meta.env.BASE_URL
+import { asset } from '../utils/asset.js'
 
-export function asset(path) {
-  return `${base}${path.replace(/^\//, '')}`
-}
+export { asset }
 
 export const MAP_IMAGE = asset('images/map.svg')
 
@@ -128,6 +126,106 @@ export const bathrooms = [
       { x: 28, y: 36 },
       { x: 22, y: 32 },
       { x: 18, y: 30 },
+    ],
+  },
+  {
+    id: 'museo-arte',
+    name: 'Baño Museo de Arte',
+    shortName: 'Museo de Arte',
+    distance: 590,
+    walkMinutes: 8,
+    rating: 4.3,
+    reviewCount: 72,
+    features: ['clean', 'accessible', 'paper', 'free'],
+    photoUrl: asset('images/bathrooms/mercado.jpg'),
+    mapX: 92,
+    mapY: 42,
+    routePath: [
+      { x: 50, y: 50 },
+      { x: 58, y: 48 },
+      { x: 68, y: 45 },
+      { x: 80, y: 43 },
+      { x: 92, y: 42 },
+    ],
+  },
+  {
+    id: 'hospital-general',
+    name: 'Baño Hospital General',
+    shortName: 'Hospital General',
+    distance: 740,
+    walkMinutes: 10,
+    rating: 4.1,
+    reviewCount: 38,
+    features: ['clean', 'accessible', 'open247', 'soap'],
+    photoUrl: asset('images/bathrooms/metro.jpg'),
+    mapX: 12,
+    mapY: 68,
+    routePath: [
+      { x: 50, y: 50 },
+      { x: 40, y: 54 },
+      { x: 28, y: 60 },
+      { x: 18, y: 65 },
+      { x: 12, y: 68 },
+    ],
+  },
+  {
+    id: 'universidad',
+    name: 'Baño Campus Universitario',
+    shortName: 'Campus Universitario',
+    distance: 820,
+    walkMinutes: 11,
+    rating: 4.6,
+    reviewCount: 94,
+    features: ['clean', 'paper', 'baby', 'free', 'inclusive'],
+    photoUrl: asset('images/bathrooms/biblioteca.jpg'),
+    mapX: 72,
+    mapY: 82,
+    routePath: [
+      { x: 50, y: 50 },
+      { x: 55, y: 58 },
+      { x: 62, y: 68 },
+      { x: 68, y: 76 },
+      { x: 72, y: 82 },
+    ],
+  },
+  {
+    id: 'estadio',
+    name: 'Baño Estadio Municipal',
+    shortName: 'Estadio Municipal',
+    distance: 910,
+    walkMinutes: 12,
+    rating: 3.9,
+    reviewCount: 31,
+    features: ['accessible', 'offline', 'open247', 'free'],
+    photoUrl: asset('images/bathrooms/parque.jpg'),
+    mapX: 8,
+    mapY: 18,
+    routePath: [
+      { x: 50, y: 50 },
+      { x: 38, y: 42 },
+      { x: 26, y: 32 },
+      { x: 16, y: 24 },
+      { x: 8, y: 18 },
+    ],
+  },
+  {
+    id: 'terminal-bus',
+    name: 'Baño Terminal de Autobuses',
+    shortName: 'Terminal de Autobuses',
+    distance: 960,
+    walkMinutes: 13,
+    rating: 4.0,
+    reviewCount: 55,
+    features: ['clean', 'accessible', 'paper', 'offline', 'open247'],
+    photoUrl: asset('images/bathrooms/centro.jpg'),
+    mapX: 88,
+    mapY: 78,
+    routePath: [
+      { x: 50, y: 50 },
+      { x: 58, y: 55 },
+      { x: 68, y: 62 },
+      { x: 78, y: 70 },
+      { x: 88, y: 78 },
     ],
   },
 ]

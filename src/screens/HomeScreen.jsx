@@ -1,14 +1,54 @@
-import Logo, { Mascot } from '../components/Logo'
+import { motion, useReducedMotion } from 'framer-motion'
+import { ASSETS, Mascot } from '../components/Logo'
+import { homeActions, homeItem, homeMascot, homeSkyline, homeStagger } from '../motion/transitions'
 
 export default function HomeScreen({ onStart, onOffline }) {
+  const reduceMotion = useReducedMotion()
+
+  const stackVariants = reduceMotion ? {} : homeStagger
+  const itemVariants = reduceMotion ? {} : homeItem
+  const mascotVariants = reduceMotion ? {} : homeMascot
+  const skylineVariants = reduceMotion ? {} : homeSkyline
+  const actionsVariants = reduceMotion ? {} : homeActions
+
   return (
     <div className="screen home-screen">
-      <div className="home-screen__skyline" />
-      <div className="home-screen__content">
-        <Logo size="lg" />
-        <p className="home-screen__tagline">Tu baño, siempre cerca.</p>
-        <Mascot className="home-screen__mascot" />
-        <div className="home-screen__actions">
+      <motion.div
+        className="home-screen__skyline"
+        style={{ backgroundImage: `url(${ASSETS.skyline})` }}
+        aria-hidden
+        variants={skylineVariants}
+        initial="hidden"
+        animate="show"
+      />
+      <div className="home-screen__body">
+        <motion.div
+          className="home-screen__stack home-screen__anim"
+          variants={stackVariants}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div className="home-screen__brand" variants={itemVariants}>
+            <div className="home-screen__glow home-screen__glow--pin">
+              <img src={ASSETS.pin} alt="" className="home-screen__pin" />
+            </div>
+            <div className="home-screen__glow home-screen__glow--logo">
+              <img src={ASSETS.nameLogo} alt="Bañópolis" className="home-screen__namelogo" />
+            </div>
+          </motion.div>
+          <motion.p className="home-screen__tagline" variants={itemVariants}>
+            Tu baño, siempre cerca.
+          </motion.p>
+          <motion.div className="home-screen__glow home-screen__glow--mascot" variants={mascotVariants}>
+            <Mascot className="home-screen__mascot" />
+          </motion.div>
+        </motion.div>
+        <motion.div
+          className="home-screen__actions"
+          variants={actionsVariants}
+          initial="hidden"
+          animate="show"
+        >
           <button className="btn btn--green btn--lg" onClick={onStart}>
             COMENZAR
           </button>
@@ -16,7 +56,7 @@ export default function HomeScreen({ onStart, onOffline }) {
             <WifiOffIcon />
             FUNCIONA SIN INTERNET
           </button>
-        </div>
+        </motion.div>
       </div>
     </div>
   )

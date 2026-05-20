@@ -50,6 +50,12 @@ La app estará disponible en: `https://<tu-usuario>.github.io/banopolis/`
 | Icono de filtros | Modal de filtros |
 | GUARDAR | Toast de confirmación |
 
+## Imágenes de marca (Inicio, mascota, favicon)
+
+Los PNG de la pantalla de inicio viven en **`src/assets/brand/`** (`pin.png`, `namelogo.png`, `toiletmascot.png`). Sustituye esos archivos ahí; Vite recargará al guardar.
+
+El favicon usa `public/images/toiletmascot.png` — si cambias la mascota, copia también el PNG a esa carpeta (o vuelve a ejecutar `npm run build` tras actualizar `public/images/`).
+
 ## Stack
 
 - React 19 + Vite 6

@@ -1,14 +1,13 @@
-import { bathrooms } from '../data/mockBathrooms'
 import { ScreenHeader, StarRating, BathroomThumbnail, ChevronRightIcon, FavoriteHeartButton } from '../components/Shared'
 
-export default function FavoritesScreen({ favoriteIds, onSelect, onToggleFavorite, onMenu }) {
-  const favorites = bathrooms.filter((b) => favoriteIds.has(b.id))
-
+export default function FavoritesScreen({ favorites, onSelect, onToggleFavorite, onMenu }) {
   return (
     <div className="screen favorites-screen">
       <ScreenHeader title="Mis favoritos" onMenu={onMenu} />
       {favorites.length === 0 ? (
-        <p className="favorites-empty">No tienes baños guardados todavía.</p>
+        <p className="favorites-empty">
+          No tienes favoritos visibles con los filtros actuales.
+        </p>
       ) : (
         <ul className="bathroom-list bathroom-list--favorites">
           {favorites.map((b) => (

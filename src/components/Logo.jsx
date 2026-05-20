@@ -1,4 +1,16 @@
 import { Toilet } from 'lucide-react'
+import { asset } from '../utils/asset.js'
+import pinImg from '../assets/brand/pin.png'
+import nameLogoImg from '../assets/brand/namelogo.png'
+import mascotImg from '../assets/brand/toiletmascot.png'
+
+/** Brand images: replace files in src/assets/brand/ (Vite will hot-reload). */
+export const ASSETS = {
+  pin: pinImg,
+  nameLogo: nameLogoImg,
+  mascot: mascotImg,
+  skyline: asset('images/skyline.svg'),
+}
 
 export default function Logo({ size = 'md' }) {
   const pinSize = size === 'sm' ? 36 : size === 'lg' ? 72 : 56
@@ -49,17 +61,11 @@ export function ToiletPin({ size = 32 }) {
 
 export function Mascot({ className = '' }) {
   return (
-    <svg viewBox="0 0 160 200" className={`mascot ${className}`}>
-      <rect x="40" y="50" width="80" height="90" rx="12" fill="white" stroke="#003399" strokeWidth="3" />
-      <rect x="55" y="140" width="50" height="14" rx="3" fill="#ccc" />
-      <ellipse cx="80" cy="38" rx="28" ry="12" fill="white" stroke="#003399" strokeWidth="3" />
-      <circle cx="62" cy="82" r="8" fill="#003399" />
-      <circle cx="98" cy="82" r="8" fill="#003399" />
-      <circle cx="64" cy="80" r="3" fill="white" />
-      <path d="M95 80 Q100 78 102 82" stroke="#003399" strokeWidth="2" fill="none" />
-      <path d="M68 105 Q80 118 92 105" stroke="#003399" strokeWidth="3" fill="none" strokeLinecap="round" />
-      <path d="M120 90 L130 75 L125 95 Z" fill="#4CAF50" stroke="#003399" strokeWidth="2" />
-      <rect x="118" y="70" width="16" height="8" rx="2" fill="#4CAF50" stroke="#003399" strokeWidth="2" />
-    </svg>
+    <img
+      src={ASSETS.mascot}
+      alt=""
+      className={`mascot ${className}`.trim()}
+      draggable={false}
+    />
   )
 }
